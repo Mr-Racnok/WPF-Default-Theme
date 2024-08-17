@@ -1,0 +1,64 @@
+<Window x:Class="Template2.DialogWindowExit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        Title="DialogWindow" MaxWidth="400" MaxHeight="200" MinWidth="400" MinHeight="200"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <ui:TextBlock Grid.Row="1" Background="#F0F1F2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"></ui:TextBlock>
+        <ui:TextBlock  
+            Name="DialogTittle"
+            FontTypography="Subtitle" 
+            Text="Tittle"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Margin="15 0 0 2"
+            FontWeight="SemiBold">
+        </ui:TextBlock>
+        <ui:TextBlock  
+            Name="DialogText"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            TextWrapping="Wrap"
+            FontTypography="BodyStrong" 
+            Text="Message."
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Margin="15 0 0 2"
+            FontWeight="SemiBold">
+        </ui:TextBlock>
+        <ui:Button
+            Name="DialogButtonYes"
+            Click="Click_Exit"
+            Cursor="Hand"
+            Content="Exit"
+            Grid.Row="2"
+            HorizontalAlignment="Stretch"
+            Margin="6 6 6 6"
+            VerticalAlignment="Stretch"
+            Appearance="Dark">
+        </ui:Button>
+        <ui:Button
+            Name="DialogButtonNo"
+            Click="Click_Cancel"
+            Cursor="Hand"
+            Content="Cancel"
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalAlignment="Stretch"
+            Margin="6 6 6 6"
+            VerticalAlignment="Stretch">
+        </ui:Button>
+    </Grid>
+</Window>
