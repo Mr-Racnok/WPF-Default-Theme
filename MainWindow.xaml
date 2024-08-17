@@ -13,15 +13,19 @@
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
     </WindowChrome.WindowChrome>
 
-    <Border CornerRadius="6" Background="#F0F1F2" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border CornerRadius="6" Background="#ffffff" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
             <!-- HEADER -->
-            <Border CornerRadius="6" Background="#ECF0F6" />
+            <Border CornerRadius="6" Background="#ECF0F6" Grid.ColumnSpan="2"/>
             <ui:SymbolIcon 
                 Symbol="Home24"
                 HorizontalAlignment="Left"
@@ -29,22 +33,26 @@
                 Margin="15 0 0 2">
             </ui:SymbolIcon>
             <TextBlock 
+                Grid.ColumnSpan="2"
                 Text="Your App Name"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Margin="55 0 0 2"
                 FontWeight="SemiBold">
             </TextBlock>
-            <ui:SymbolIcon 
-                Symbol="Dismiss24"
+            <ui:Button
+                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Right"
+                Click="OpenDialog_Click"
+                Cursor="Hand"
                 VerticalAlignment="Center"
                 Margin="0 0 10 2">
-            </ui:SymbolIcon>
+                <ui:SymbolIcon Symbol="Dismiss24"/>
+            </ui:Button>
             <!-- HEADER -->
             
             <!-- SIDE NAVIGATION -->
-            <ui:NavigationView IsBackButtonVisible="Collapsed" Grid.Row="1">
+            <ui:NavigationView IsBackButtonVisible="Collapsed" Grid.Row="1" Grid.Column="0" Name="SideNavigation" IsPaneOpen="False" >
                 <ui:NavigationView.MenuItems>
                     
                     <ui:NavigationViewItem Content="Home">
@@ -81,7 +89,24 @@
                 <!-- FOOTER SIDEBAR -->
             </ui:NavigationView>
             <!-- SIDE NAVIGATION -->
-            
+
+            <Frame Name="Content" Background="#D6D6D6" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2">
+
+            </Frame>
+
+            <!-- -->
+            <ui:InfoBar 
+                Name="ToastNotification"
+                Title="Title" 
+                Message="Essential message." 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Severity="Success"
+                Margin="0 20 0 0">
+            </ui:InfoBar>
         </Grid>
     </Border>
 </Window>
